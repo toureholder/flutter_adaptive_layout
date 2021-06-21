@@ -1,0 +1,17 @@
+name: adaptive_layout
+description: A flutter package that facilitates implementing layouts that adapt to different screen widths.
+version: 0.1.0
+repository: https://github.com/toureholder/flutter_adaptive_layout
+homepage: https://github.com/toureholder/flutter_adaptive_layout#readme
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter

@@ -1,0 +1,36 @@
+addons:
+  apt:
+    packages:
+      - lib32stdc++6
+
+env:
+  global:
+    - FLUTTER_CHANNEL=stable
+
+cache:
+  cocoapods: true
+  directories:
+  - $HOME/.pub-cache
+
+stages:
+  - name: test
+    if: branch = main
+
+jobs:
+  include:
+    - stage: test
+      name: "Test and analyze"
+      install:
+        - git clone https://github.com/flutter/flutter.git -b $FLUTTER_CHANNEL
+        - export PATH="$PATH:`pwd`/flutter/bin/cache/dart-sdk/bin"
+        - export PATH="$PATH:`pwd`/flutter/bin"
+        - flutter doctor -v
+        - flutter packages get
+        - gem install coveralls-lcov
+      script:
+        - flutter analyze --no-pub --no-current-package lib/ test/
+        - flutter test --coverage --coverage-path=lcov.info
+      after_success:
+        - bash <(curl -s https://codecov.io/bash)
+        - coveralls-lcov lcov.info
+
