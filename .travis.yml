@@ -12,25 +12,36 @@ cache:
   directories:
   - $HOME/.pub-cache
 
-stages:
-  - name: test
-    if: branch = main
+if: (type = pull_request AND branch = main) OR tag =~ ^v
 
-jobs:
-  include:
-    - stage: test
-      name: "Test and analyze"
-      install:
-        - git clone https://github.com/flutter/flutter.git -b $FLUTTER_CHANNEL
-        - export PATH="$PATH:`pwd`/flutter/bin/cache/dart-sdk/bin"
-        - export PATH="$PATH:`pwd`/flutter/bin"
-        - flutter doctor -v
-        - flutter packages get
-        - gem install coveralls-lcov
-      script:
-        - flutter analyze --no-pub --no-current-package lib/ test/
-        - flutter test --coverage --coverage-path=lcov.info
-      after_success:
-        - bash <(curl -s https://codecov.io/bash)
-        - coveralls-lcov lcov.info
-
+install:
+  - cd ..
+  - git clone https://github.com/flutter/flutter.git -b $FLUTTER_CHANNEL
+  - export PATH="$PATH:`pwd`/flutter/bin/cache/dart-sdk/bin"
+  - export PATH="$PATH:`pwd`/flutter/bin"
+  - flutter doctor -v
+  - cd flutter_adaptive_layout
+  - flutter packages get
+  - gem install coveralls-lcov
+script:
+  - flutter analyze --no-pub --no-current-package lib/ test/
+  - flutter test --coverage --coverage-path=lcov.info
+  - cd example && flutter build web --release && cd ..
+  - flutter pub publish --dry-run
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+  - coveralls-lcov lcov.info
+  - chmod +x script/publish.sh
+  - mv script ../
+deploy:
+  - provider: surge
+    skip_cleanup: true
+    project: ./example/build/web
+    domain: flutter-adaptive-layout.surge.sh
+    on:
+      tags: true
+  - provider: script
+    skip_cleanup: true
+    script: '../script/publish.sh'
+    on:
+      tags: true
