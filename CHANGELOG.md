@@ -1,3 +1,7 @@
+## 0.1.1
+
+- docs: update readme
+
 ## 0.1.0
 
 - feat: initial version of the library

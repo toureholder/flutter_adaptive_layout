@@ -29,13 +29,6 @@
 
 Depend on this package as a **dependency** by running `flutter pub add adaptive_layout`.
 
-This will install the package and add an entry to your package's `pubspec.yaml` file:
-
-```yaml
-dependencies:
-  adaptive_layout: ^0.1.0
-```
-
 ## 2. Import it
 
 Now in your `Dart` code, you can use:
@@ -82,7 +75,7 @@ AdaptiveLayout(smallLayout: Container(width: 300))
 The default definitions are:
  - large screens are at least 1200dpi wide
  - medium screens are at least 720dpi wide
- - small screens are less thatn 720dpi wide
+ - small screens are less than 720dpi wide
 
 The breakpoints can be easily configured by calling the static method `AdaptiveLayout.setBreakpoints` like:
 
