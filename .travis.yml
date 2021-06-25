@@ -12,7 +12,7 @@ cache:
   directories:
   - $HOME/.pub-cache
 
-if: (type = pull_request AND branch = main) OR tag =~ ^v
+if: branch = main OR tag =~ ^v
 
 install:
   - cd ..
