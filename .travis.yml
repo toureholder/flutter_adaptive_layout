@@ -27,6 +27,8 @@ script:
   - flutter analyze --no-pub --no-current-package lib/ test/
   - flutter test --coverage --coverage-path=lcov.info
   - cd example && flutter build web --release && cd ..
+  - npm i -g surge
+  - surge --project ./example/build/web --domain flutter-adaptive-layout-staging.surge.sh
   - flutter pub publish --dry-run
 after_success:
   - bash <(curl -s https://codecov.io/bash)
