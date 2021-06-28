@@ -1,6 +1,10 @@
 <h1 align="center">Adaptive Layout</h1>
 
-<p align="center">A flutter package that facilitates implementing layouts that adapt to different screen widths. Try out our <a href="https://flutter-adaptive-layout.surge.sh">live example app</a>.</p><br>
+<p align="center">A flutter package that facilitates implementing layouts that adapt to different screen widths.</p>
+<p align="center">
+  Try out the <a href="https://flutter-adaptive-layout.surge.sh">live example app</a>.
+  </p>
+<br>
 
 <p align="center">
   <a href="https://travis-ci.com/toureholder/flutter_adaptive_layout">
@@ -15,13 +19,21 @@
 
 <!-- omit in toc -->
 # Table of contents
+- [Live demos](#live-demos)
 - [Installing](#installing)
   - [1. Depend on it](#1-depend-on-it)
   - [2. Import it](#2-import-it)
 - [Usage](#usage)
   - [Screen-size buckets](#screen-size-buckets)
+  - [Order of precedence](#order-of-precedence)
   - [Breakpoints](#breakpoints)
 - [Maintainers](#maintainers)
+
+# Live demos
+See the package in action:
+- [pub.dev example app](https://flutter-adaptive-layout.surge.sh)
+- [Another example app](http://flutter-workshop.surge.sh)
+
 
 # Installing
 
@@ -57,19 +69,22 @@ In the above example `AdaptiveLayout` will render a `Container` with a width of 
 
 `AdaptiveLayout` supports three screen-size buckets: small, medium, and large.
 
-The `AdaptiveLayout` constructor accepts any `Widget` for each screen-size bucket and at least one screen-size bucket must have its layout defined by a widget. The constructor will throw an `AssertionError` if no layouts are defined.
+The `AdaptiveLayout` constructor accepts any `Widget` for each screen-size bucket and at least one `Widget` must be passed to the constructor. The constructor will throw an `AssertionError` if no layouts are provided.
 
 For example:
 
 ```dart
-// Bad. Calling the constructor with no arguments will throw an error
+// Bad. Calling the constructor with no arguments will throw an error.
 AdaptiveLayout()
 ```
 
 ```dart
-// Good. Calling the constructor with only one argument will not throw an error
+// Good. Calling the constructor with only one argument will not throw an error.
 AdaptiveLayout(smallLayout: Container(width: 300))
 ```
+
+## Order of precedence
+As stated, it isn't necessary to provide a widget for each screen-size bucket. On **large** screens the order of precedence is **`largeLayout`**, `mediumLayout`, `smallLayout`. On **medium** screens the order of precedence is **`mediumLayout`**, `largeLayout`, `smallLayout`. On **small** screens the order of precedence is **`smallLayout`**, `mediumLayout`, `largeLayout`.
 
 ## Breakpoints
 The default definitions are:
@@ -89,6 +104,7 @@ void main() {
   runApp(MyApp());
 }
 ```
+
 # Maintainers
 
 - [Touré Holder](https://github.com/toureholderl)
