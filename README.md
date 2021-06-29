@@ -32,7 +32,7 @@
 # Live demos
 See the package in action:
 - [pub.dev example app](https://flutter-adaptive-layout.surge.sh)
-- [Another example app](http://flutter-workshop.surge.sh)
+- [Another example app](https://flutter-workshop.surge.sh)
 
 
 # Installing
