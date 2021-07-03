@@ -18,7 +18,7 @@
 </p>
 
 <!-- omit in toc -->
-# Table of contents
+## Table of contents
 - [Live demos](#live-demos)
 - [Installing](#installing)
   - [1. Depend on it](#1-depend-on-it)
@@ -29,19 +29,20 @@
   - [Breakpoints](#breakpoints)
 - [Maintainers](#maintainers)
 
-# Live demos
+## Live demos
 See the package in action:
 - [pub.dev example app](https://flutter-adaptive-layout.surge.sh)
+- [Adaptive layout tutorial app](https://flutter-adaptive-layout-tutorial.surge.sh)
 - [Another example app](https://flutter-workshop.surge.sh)
 
 
-# Installing
+## Installing
 
-## 1. Depend on it
+### 1. Depend on it
 
 Depend on this package as a **dependency** by running `flutter pub add adaptive_layout`.
 
-## 2. Import it
+### 2. Import it
 
 Now in your `Dart` code, you can use:
 
@@ -49,7 +50,7 @@ Now in your `Dart` code, you can use:
 import 'package:adaptive_layout/adaptive_layout.dart';
 ```
 
-# Usage
+## Usage
 
 `AdaptiveLayout` is a _Stateless Widget_ whose `build` method will return one of the `Widget`s provided to it according to the current width of the screen.
 
@@ -65,7 +66,7 @@ AdaptiveLayout(
 
 In the above example `AdaptiveLayout` will render a `Container` with a width of 300dpi on a small screen, a `Container` with a width of 700dpi on a medium sized screen and a `Container` with a width of 900dpi on a large screen.
 
-## Screen-size buckets
+### Screen-size buckets
 
 `AdaptiveLayout` supports three screen-size buckets: small, medium, and large.
 
@@ -83,10 +84,10 @@ AdaptiveLayout()
 AdaptiveLayout(smallLayout: Container(width: 300))
 ```
 
-## Order of precedence
+### Order of precedence
 As stated, it isn't necessary to provide a widget for each screen-size bucket. On **large** screens the order of precedence is **`largeLayout`**, `mediumLayout`, `smallLayout`. On **medium** screens the order of precedence is **`mediumLayout`**, `largeLayout`, `smallLayout`. On **small** screens the order of precedence is **`smallLayout`**, `mediumLayout`, `largeLayout`.
 
-## Breakpoints
+### Breakpoints
 The default definitions are:
  - large screens are at least 1200dpi wide
  - medium screens are at least 720dpi wide
@@ -105,6 +106,6 @@ void main() {
 }
 ```
 
-# Maintainers
+## Maintainers
 
 - [Touré Holder](https://github.com/toureholderl)
