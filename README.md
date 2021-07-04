@@ -27,6 +27,7 @@
   - [Screen-size buckets](#screen-size-buckets)
   - [Order of precedence](#order-of-precedence)
   - [Breakpoints](#breakpoints)
+- [Tutorials](#tutorials)
 - [Maintainers](#maintainers)
 
 ## Live demos
@@ -105,6 +106,9 @@ void main() {
   runApp(MyApp());
 }
 ```
+
+## Tutorials
+- [Creating adaptive layouts with Flutter](https://dev.to/toureholder/creating-adaptive-layouts-with-flutter-56oa)
 
 ## Maintainers
 
