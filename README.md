@@ -12,13 +12,16 @@
       alt="Build Status" />
   </a>
 
-  <a href='https://coveralls.io/github/toureholder/flutter_adaptive_layout?branch=main'>
-    <img src='https://coveralls.io/repos/github/toureholder/flutter_adaptive_layout/badge.svg?branch=main' alt='Coverage Status' />
+  <a href="https://codecov.io/gh/toureholder/flutter_adaptive_layout">
+    <img src="https://codecov.io/gh/toureholder/flutter_adaptive_layout/branch/main/graph/badge.svg?token=YEEJNZNJYT"/>
   </a>
 </p>
 
 <!-- omit in toc -->
+
 ## Table of contents
+
+- [Table of contents](#table-of-contents)
 - [Live demos](#live-demos)
 - [Installing](#installing)
   - [1. Depend on it](#1-depend-on-it)
@@ -31,11 +34,12 @@
 - [Maintainers](#maintainers)
 
 ## Live demos
+
 See the package in action:
+
 - [pub.dev example app](https://flutter-adaptive-layout.surge.sh)
 - [Adaptive layout tutorial app](https://flutter-adaptive-layout-tutorial.surge.sh)
 - [Another example app](https://flutter-workshop.surge.sh)
-
 
 ## Installing
 
@@ -86,13 +90,16 @@ AdaptiveLayout(smallLayout: Container(width: 300))
 ```
 
 ### Order of precedence
+
 As stated, it isn't necessary to provide a widget for each screen-size bucket. On **large** screens the order of precedence is **`largeLayout`**, `mediumLayout`, `smallLayout`. On **medium** screens the order of precedence is **`mediumLayout`**, `largeLayout`, `smallLayout`. On **small** screens the order of precedence is **`smallLayout`**, `mediumLayout`, `largeLayout`.
 
 ### Breakpoints
+
 The default definitions are:
- - large screens are at least 1200dpi wide
- - medium screens are at least 720dpi wide
- - small screens are less than 720dpi wide
+
+- large screens are at least 1200dpi wide
+- medium screens are at least 720dpi wide
+- small screens are less than 720dpi wide
 
 The breakpoints can be easily configured by calling the static method `AdaptiveLayout.setBreakpoints` like:
 
@@ -108,6 +115,7 @@ void main() {
 ```
 
 ## Tutorials
+
 - [Creating adaptive layouts with Flutter](https://dev.to/toureholder/creating-adaptive-layouts-with-flutter-56oa)
 
 ## Maintainers
