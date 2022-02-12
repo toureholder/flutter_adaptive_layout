@@ -76,3 +76,4 @@ build/
 
 # Test coverage artefacts
 coverage/
+lcov.info

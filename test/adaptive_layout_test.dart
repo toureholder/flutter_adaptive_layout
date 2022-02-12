@@ -1,9 +1,6 @@
 import 'package:adaptive_layout/adaptive_layout.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:adaptive_layout/src/adaptive_layout.dart';
 
 Widget makeTestableWidget({
   Widget? smallLayout,
